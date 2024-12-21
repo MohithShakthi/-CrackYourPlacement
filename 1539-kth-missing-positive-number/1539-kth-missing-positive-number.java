@@ -1,10 +1,13 @@
 class Solution {
     public int findKthPositive(int[] arr, int k) {
         List<Integer> list = new ArrayList<>();
-        for(int i=1;i<=1000000;i++){
+        for(int i=1;i<=1000+k;i++){
             int check = binarySearch(arr,i);
             if(check == -1){
                 list.add(i);
+            }
+            if(list.size() == k){
+                return list.get(k-1);
             }
         }
         return list.get(k-1);

@@ -18,8 +18,8 @@ class Solution {
     public long findTotalTime(int[] nums, int perH){
         long sum = 0;
         for(int n : nums){
-            sum += (n + perH - 1) / perH;
-            //sum = sum + (long)Math.ceil((double)n/(double)perH);
+            //sum += (n + perH - 1) / perH;
+            sum = sum + (long)Math.ceil((double)n/(double)perH);
         }
         return sum;
     }

@@ -1,14 +1,6 @@
 class Solution {
     public List<Integer> findDuplicates(int[] nums) {
-        List result = new ArrayList<>();
-        for(int n : nums){
-            n = Math.abs(n);
-            if(nums[n - 1]>0){
-                nums[n-1]*= -1;
-            }else{
-                result.add(n);
-            }
-        }
-        return result; 
+        List<Integer> duplicates = Arrays.stream(nums).boxed().collect(Collectors.groupingBy(num -> num, Collectors.counting())).entrySet().stream().filter(entry -> entry.getValue() > 1).map(Map.Entry::getKey).collect(Collectors.toList());
+        return duplicates;
     }
 }
